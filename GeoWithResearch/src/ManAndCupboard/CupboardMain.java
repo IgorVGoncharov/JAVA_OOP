@@ -2,7 +2,7 @@ package ManAndCupboard;
 
 import GeoTree.Male;
 
-public class main {
+public class CupboardMain {
     public static void main(String[] args) {
         Man Igor = new Man("Игорь", Male.male);
         Man Marina = new Man("Марина", Male.female);

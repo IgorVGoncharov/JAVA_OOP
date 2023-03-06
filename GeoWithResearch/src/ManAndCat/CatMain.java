@@ -1,7 +1,8 @@
 package ManAndCat;
 
-public class main {
+public class CatMain {
     public static void main(String[] args) {
+        System.out.println("dd");
         Human igor = new Human("Игорь");
         Cat pushok = new Cat("Пушок");
         igor.collingForCat(pushok);
