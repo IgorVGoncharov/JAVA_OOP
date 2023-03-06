@@ -42,9 +42,13 @@ public class Cat {
         return age;
     }
 
+    public void setAge(Integer age){
+        this.age = age;
+    }
+
     public void reactionForCalling(){
-        int res = random.nextInt(2);
-        if (res == 0){
+        int res = random.nextInt(20);
+        if (res%2 == 0){
             System.out.println(this.name + " откликается и подбегает...\n");
         }
         else{

@@ -29,6 +29,10 @@ public class Human {
         return age;
     }
     
+    public void setAge(Integer age){
+        this.age = age;
+    }
+
     public String getFullName(){
         return fullName;
     }
@@ -70,7 +74,7 @@ public class Human {
     public void reactionForCatComeInNight(){
         int res = random.nextInt(2);
         if (res == 0){
-            System.out.println(this.fullName + " продолжает крепко спатьо....\n");
+            System.out.println(this.fullName + " продолжает крепко спать....\n");
         }
         else if (res == 1){
             System.out.println(this.fullName + " просыпается, гладит кота и снова засыпает....\n");

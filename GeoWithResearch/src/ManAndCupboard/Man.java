@@ -1,8 +1,3 @@
-// для каждого отдельного домашнего задания создаю новый обьект. 
-//Считаю это правильно, т.к. по идее это не связанные задания.
-// Если считаем их связанными, то можно human наследовать от Person.
-//как лучше??
-
 package ManAndCupboard;
 
 import GeoTree.Male;
@@ -42,16 +37,48 @@ public class Man {
         return age;
     }
 
+    public void setAge(Integer age){
+        this.age = age;
+    }
+
     public void openDor(Cupboard cupboard){
-        if (cupboard.getOpenClose()){
-            System.out.println("Дверца шкафа уже открыта");
+        if (cupboard.getdorOpen()){
+            System.out.println(this.name + " хочет открыть дверцу шкафа, но она уже открыта!");
         }
         else{
             if (this.male == Male.male){
-                System.out.println(this.name + " открыл дверцу шкафа");
+                System.out.println(this.name + " открыл дверь шкафа");
             }
             else{
-                System.out.println(this.name + " открыла дверцу шкафа");
+                System.out.println(this.name + " открыла дверь шкафа");
+            }
+            cupboard.setdorOpen(true);
+        }
+    }
+
+    public void closeDor(Cupboard cupboard){
+        if (!cupboard.getdorOpen()){
+            System.out.println(this.name + " хочет закрыть дверцу шкафа, но она уже закрыта!");
+        }
+        else{
+            if (this.male == Male.male){
+                System.out.println(this.name + " закрыл дверцу шкафа");
+            }
+            else{
+                System.out.println(this.name + " закрыла дверцу шкафа");
+            }
+            cupboard.setdorOpen(false);
+        }
+    }
+
+    public void whatInCupboard(Cupboard cupboard){
+        if (!cupboard.getdorOpen()){
+            System.out.println(this.name + " пытается посмотреть, что в шкафу, но ничего не видно. Дверь шкафа закрыта!");
+        }
+        else{
+            System.out.println("Вот, что есть сейчас в шкакфу: ");
+            for (String item : cupboard.getCupboardItems()) {
+                System.out.println("- " + item);
             }
         }
     }
