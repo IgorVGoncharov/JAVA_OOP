@@ -1,4 +1,4 @@
-package GeoTree;
+package HomeWork1.GeoTree.HomeWork2.GeoTreeHM2;
 import java.util.ArrayList;
 
 public class GeoTree {
@@ -10,7 +10,7 @@ public class GeoTree {
 
     
 
-    public void append(Person firstPerson, Relationship relationship, Person secPerson) {
+    public void append(Peoples firstPerson, Relationship relationship, Peoples secPerson) {
         if (relationTry(firstPerson, secPerson)){
             System.out.println("Между " + firstPerson + " и " + secPerson + " уже есть родственная связь!");
         }
@@ -26,7 +26,7 @@ public class GeoTree {
 
     }
     
-    public boolean relationTry(Person firstPerson, Person secPerson){
+    public boolean relationTry(Peoples firstPerson, Peoples secPerson){
         for (Relationship relations : Relationship.values()) {
             for (Node node : tree) {
                 if(node.p1.equals(firstPerson) && node.p2.equals(secPerson) && node.re == relations){

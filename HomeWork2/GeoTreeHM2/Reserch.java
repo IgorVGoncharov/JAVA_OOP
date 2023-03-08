@@ -1,4 +1,4 @@
-package GeoTree;
+package HomeWork1.GeoTree.HomeWork2.GeoTreeHM2;
 import java.util.ArrayList;
 
 public class Reserch {
@@ -11,25 +11,21 @@ public class Reserch {
         tree = geoTree.getTree();
     }
 
-    public ArrayList<String> spend(Person p, Relationship re) {
+    public void spend(Peoples p, Relationship re) {
         for (Node t : tree) {
             if (t.p1.getFullName().equals(p.getFullName()) && t.re == re){
                 result.add(t.p2.getFullName());
             }
         }
-        return result;
+        System.out.println(p.getFullName() + " c " + result + ", имеет следующую связь: " + re);
     }
     
 
-    
-
-
-    public void findMale(Person per, Sex male){
+    public void findMale(Peoples per, Sex male){
         for (Node tree : tree) {
             if (tree.p1.getFullName().equals(per.getFullName()) && tree.p2.getSex() == male){
                 result.add(tree.p2.getFullName());
             }
-
         }
         if (result.size() == 0){
             System.out.println("Таких связей не найдено!");
@@ -45,7 +41,7 @@ public class Reserch {
 
     public void bornBefor(int year){
         for (Node tree : tree) {
-            if (tree.p1.getbirthYear() < year){
+            if (tree.p1.getBirthYear() < year){
                 if (!result.contains(tree.p1.getFullName()))
                 result.add(tree.p1.getFullName());
             }
@@ -58,21 +54,41 @@ public class Reserch {
         }
     }
     
-    public void allRelations(Person per){
+    public void allRelations(Peoples per){
         System.out.println("Найдены следующие связи для " + per.getFullName() + ": " );
         for (Node tree : tree) {
             if (tree.p1.getFullName().equals(per.getFullName())){
                 if (!result.contains(tree.p1.getFullName() + tree.p2.getFullName())){
                     result.add(tree.p1.getFullName() + tree.p2.getFullName());
                         if (tree.p2.getSex() == Sex.male){
-                            System.out.println("- " + tree.p2.getFullName() + ", для котрого " + per.getFullName() + ": " + tree.re);
+                            System.out.println("- " + tree.p2.getFullName() + ", для которого " + per.getFullName() + ": " + tree.re);
                         }
                         else{
-                            System.out.println("- " + tree.p2.getFullName() + ", для котрой " + per.getFullName() + ": " + tree.re);
+                            System.out.println("- " + tree.p2.getFullName() + ", для которой " + per.getFullName() + ": " + tree.re);
                         }
                 
                 }
             }
         }
+    }
+
+    public void nonResidentFind(Peoples per){
+        for (Node tree : tree) {
+            if (tree.p1.getFullName() == per.getFullName()){
+                if (tree.p2 instanceof NonResidentPerson){
+                    result.add(tree.p2.getFullName());
+                }
+            }   
+        }
+        if (result.size() == 0){
+            System.out.println("У персоны " + per.getFullName() + " нет родственников, которые живут за границей.");
+        }
+        else if ((result.size() == 1)){
+            System.out.println("У персоны " + per.getFullName() + " есть родственник, который живет за границей. Вот он:\n" + result);
+        }
+        else{
+            System.out.println("У персоны " + per.getFullName() + " есть родственники, которые живут за границей. Вот они:\n" + result);
+        }
+
     }
 }

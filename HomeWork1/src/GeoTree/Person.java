@@ -2,19 +2,19 @@ package GeoTree;
 
 public class Person {
     private String fullName;
-    private Male male;
+    private Sex sex;
     private Integer birthYear;//
 
 
-    public Person(String fullName, Male male, Integer birthYear) {
+    public Person(String fullName, Sex sex, Integer birthYear) {
         this.fullName = fullName;
-        this.male = male;
+        this.sex = sex;
         this.birthYear = birthYear;
     }
 
-    public Person(String fullName, Male male) {
+    public Person(String fullName, Sex sex) {
         this.fullName = fullName;
-        this.male = male;
+        this.sex = sex;
     }
 
     public Person (String fullName, Integer birthYear){
@@ -32,8 +32,8 @@ public class Person {
     }
 
 
-    public Male getMale() {
-        return male;
+    public Sex getSex() {
+        return sex;
     }
     
     public Integer getbirthYear() {

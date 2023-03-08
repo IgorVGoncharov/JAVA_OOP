@@ -1,5 +1,5 @@
 package GeoTree;
-public enum Male {
+public enum Sex {
     male,
     female
 }
