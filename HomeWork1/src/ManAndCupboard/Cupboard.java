@@ -2,8 +2,6 @@ package ManAndCupboard;
 
 import java.util.ArrayList;
 
-import GeoTree.Sex;
-
 public class Cupboard {
     private String color;
     private Boolean dorOpen; // если true - то дверь открыта
