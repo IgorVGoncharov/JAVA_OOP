@@ -1,4 +1,4 @@
-package HomeWork1.GeoTree.HomeWork2.GeoTreeHM2;
+
 
 public abstract class Peoples {
     private String fullName;
@@ -47,5 +47,21 @@ public abstract class Peoples {
 
     public void setSex(Sex sex) {
         this.sex = sex;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null){
+            return false;
+        }
+        else if (this.getClass() != obj.getClass()){
+            return false;
+        }
+        else if (this.getFullName().equals(((Peoples) obj).getFullName())){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

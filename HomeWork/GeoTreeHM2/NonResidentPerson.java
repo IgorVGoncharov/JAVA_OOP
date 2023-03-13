@@ -1,4 +1,4 @@
-package HomeWork1.GeoTree.HomeWork2.GeoTreeHM2;
+
 
 public class NonResidentPerson extends Peoples {
     private String countryOfResidence;

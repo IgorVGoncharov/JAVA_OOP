@@ -1,9 +1,8 @@
-package HomeWork1.GeoTree.HomeWork2.GeoTreeHM2;
+
 import java.util.ArrayList;
 
 public class GeoTree {
     private ArrayList<Node> tree = new ArrayList<>();
-
     public ArrayList<Node> getTree() {
         return tree;
     }
@@ -29,7 +28,7 @@ public class GeoTree {
     public boolean relationTry(Peoples firstPerson, Peoples secPerson){
         for (Relationship relations : Relationship.values()) {
             for (Node node : tree) {
-                if(node.p1.equals(firstPerson) && node.p2.equals(secPerson) && node.re == relations){
+                if(node.p1.equals(firstPerson) && node.p2.equals(secPerson) && node.re.equals(relations)){
                     return true;
                 }
             }

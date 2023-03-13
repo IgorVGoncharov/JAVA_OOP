@@ -1,4 +1,4 @@
-package HomeWork1.GeoTree.HomeWork2.ManAndAnimals;
+
 
 public class Cat extends Animals implements Say{
 
@@ -16,7 +16,7 @@ public class Cat extends Animals implements Say{
     }
 
     @Override
-    void reactionForCall(Man man) {
+    public void reactionForCall(Man man) {
         if (man.random.nextInt(2) == 0){
             System.out.println(super.getName() + " откликается и подбегает...");
         }
@@ -26,7 +26,7 @@ public class Cat extends Animals implements Say{
     }
     
     @Override
-    void wantToEat() {
+    public void wantToEat() {
         System.out.println(super.getName() + " подходит и начинает тереться о ноги...");
     }
 

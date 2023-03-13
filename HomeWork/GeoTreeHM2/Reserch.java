@@ -1,9 +1,13 @@
-package HomeWork1.GeoTree.HomeWork2.GeoTreeHM2;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+
 
 public class Reserch {
     private ArrayList<String> result = new ArrayList<>();
     private ArrayList<Node> tree;
+    private ArrayList<Peoples> List = new ArrayList<>();
 
 
 
@@ -91,4 +95,39 @@ public class Reserch {
         }
 
     }
+
+    public void listOfAllRelatives(){
+        String res = new String();
+        System.out.println("Список всех родственников: ");
+        for (Node tree : tree) {
+            if (!List.contains(tree.p1)){
+                List.add(tree.p1);
+                if (tree.p1 instanceof NonResidentPerson){
+                    res = "Нет";
+                }
+                else{
+                    res = "Да";
+                }
+                System.out.print("Имя: " + tree.p1.getFullName() + ",\tпол: " + tree.p1.getSex() + ",\tдата рождения: " + tree.p1.getBirthYear());
+                System.out.print(",\t живет в России: " + res + "\n");
+            }
+        }
+    }
+
+    public void delNonResident(){
+        Iterator<Node> iterator = tree.iterator();
+        while (iterator.hasNext()){
+            Node next = iterator.next();
+            if (next.p1 instanceof NonResidentPerson){
+                iterator.remove();
+            }
+        }
+        System.out.println("\nУбираем всем родственников, кто живет за границей!\n");
+    }
+    
+    public void sortByBirthday(){
+        Collections.sort(tree, new PeaplesDateOfBirthComporator());
+        System.out.println("\nОтсортированно по году рождения.\n");
+    }
+    
 }

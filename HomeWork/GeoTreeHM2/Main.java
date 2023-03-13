@@ -1,7 +1,8 @@
-package HomeWork1.GeoTree.HomeWork2.GeoTreeHM2;
+
 public class Main {
     public static void main(String[] args) {
         ResidentPerson Igor = new ResidentPerson("Игорь", Sex.male, 1981);
+        ResidentPerson Igor1 = new ResidentPerson("Игорь", Sex.male, 1981);
         ResidentPerson Evgeniy = new ResidentPerson("Евгений", Sex.male, 1978);
         ResidentPerson Galina = new ResidentPerson("Галина", Sex.female, 1954);
         ResidentPerson Victor = new ResidentPerson("Виктор", Sex.male, 1950);
@@ -27,19 +28,27 @@ public class Main {
         gt.append(Ludmila, Relationship.children, Elena);
         gt.append(Ludmila, Relationship.children, Ivan);
         
+        //new Reserch(gt).spend(Igor, Relationship.children);
+        //System.out.println("\n");
+        //new Reserch(gt).findMale(Victor, Sex.male);
+        //System.out.println("\n");
+        //new Reserch(gt).bornBefor(1950); 
+        //System.out.println("\n");
+        //new Reserch(gt).allRelations(Victor);
+        //System.out.println("\n");
+        //new Reserch(gt).nonResidentFind(Victor);
+        //System.out.println(gt);
+        
+        new Reserch(gt).listOfAllRelatives();
+        new Reserch(gt).sortByBirthday();
+        new Reserch(gt).listOfAllRelatives();
+        new Reserch(gt).delNonResident();
+        new Reserch(gt).listOfAllRelatives();
+        
+        System.out.println("\nПросто проверка переопределения equals: ");
+        System.out.println(Igor.equals(Igor1));
         
 
-        new Reserch(gt).spend(Igor, Relationship.children);
-        System.out.println("\n");
-        new Reserch(gt).findMale(Victor, Sex.male);
-        System.out.println("\n");
-        new Reserch(gt).bornBefor(1950); 
-        System.out.println("\n");
-        new Reserch(gt).allRelations(Victor);
-        System.out.println("\n");
-        new Reserch(gt).nonResidentFind(Victor);
-   
-        
     }
 
 }
